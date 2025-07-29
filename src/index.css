@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap');
+@import "tailwindcss";
+
+body {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+@layer utilities {
+  @keyframes borderGlow {
+    0%, 100% {
+      border-color: #86efac; /* green-300 */
+    }
+    50% {
+      border-color: #4ade80; /* green-400 */
+    }
+  }
+
+  .animate-borderGlow {
+    animation: borderGlow 2s ease-in-out infinite;
+  }
+}
+
+@layer utilities {
+  .scrollbar-green {
+    scrollbar-width: thin;
+    scrollbar-color: #22c55e transparent; /* green-500 */
+  }
+
+  .scrollbar-green::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+
+  .scrollbar-green::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-green::-webkit-scrollbar-thumb {
+    background-color: #22c55e; /* green-500 */
+    border-radius: 4px;
+  }
+}
