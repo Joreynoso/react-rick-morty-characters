@@ -38,7 +38,7 @@ Validaciones para evitar búsquedas vacías, repetidas o fuera de rango.
 
 ## 🔗 Links
 
-- 🌐 **Live Link**: [Ver proyecto en línea](https://tu-url-aqui.com)
+- 🌐 **Live Link**: [Ver proyecto en línea](https://bejewelled-croissant-db2b0b.netlify.app/)
 
 ### 🖼️ Prototype | diseño
 
