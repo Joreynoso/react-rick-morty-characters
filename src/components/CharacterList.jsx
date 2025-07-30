@@ -4,6 +4,9 @@ import CharacterCard from "./CharacterCard"
 // --> impor custom hook
 import { useCharacter } from "../context/CharacterContext"
 
+// --> import framer moton
+import { motion } from 'framer-motion'
+
 const CharacterList = () => {
 
     // use character
@@ -13,7 +16,7 @@ const CharacterList = () => {
     const characters = characterData?.results || []
 
     // map CharacterCard component
-    const charactersMap = characters.map(char => {
+    const charactersMap = characters.map((char, index) => {
         const {
             id,
             name,
@@ -29,29 +32,35 @@ const CharacterList = () => {
         const isInFavorites = favorites.some(fav => fav.id === id)
 
         return (
-            <CharacterCard
-                key={id}
-                name={name}
-                status={status}
-                gender={gender}
-                species={species}
-                location={locationName}
-                origin={originName}
-                isInFavorites={isInFavorites}
-                image={image}
+            <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: "easeInOut", delay: index * 0.1 }}
+                key={id}>
 
-                // --> create and object to pass to context
-                handleClick={() => addToFavorites({
-                    id,
-                    name,
-                    status,
-                    species,
-                    gender,
-                    image,
-                    location: locationName,
-                    origin: originName,
-                })}
-            />
+                <CharacterCard
+                    name={name}
+                    status={status}
+                    gender={gender}
+                    species={species}
+                    location={locationName}
+                    origin={originName}
+                    isInFavorites={isInFavorites}
+                    image={image}
+
+                    // --> create and object to pass to context
+                    handleClick={() => addToFavorites({
+                        id,
+                        name,
+                        status,
+                        species,
+                        gender,
+                        image,
+                        location: locationName,
+                        origin: originName,
+                    })}
+                />
+            </motion.div>
         )
     })
 
